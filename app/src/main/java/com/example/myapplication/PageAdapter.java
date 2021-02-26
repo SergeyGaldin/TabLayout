@@ -1,32 +1,26 @@
 package com.example.myapplication;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import java.util.ArrayList;
 
-public class PageAdapter extends FragmentPagerAdapter {
+public class PageAdapter extends FragmentStateAdapter {
     ArrayList<Fragment> mFragmentList;
     ArrayList<String> mFragmentTitleList;
 
-    public PageAdapter(FragmentManager fm) {
-        super(fm);
+    public PageAdapter(FragmentActivity fa) {
+        super(fa);
         mFragmentList = new ArrayList<>();
         mFragmentTitleList = new ArrayList<>();
     }
 
     @NonNull
     @Override
-    public Fragment getItem(int position) {
-        return mFragmentList.get(position);
-    }
-
-    @Override
-    public int getCount() {
-        return mFragmentList.size();
+    public Fragment createFragment(int position) {
+        return  mFragmentList.get(position);
     }
 
     public void addFragment(Fragment fragment, String title) {
@@ -34,9 +28,8 @@ public class PageAdapter extends FragmentPagerAdapter {
         mFragmentTitleList.add(title);
     }
 
-    @Nullable
     @Override
-    public CharSequence getPageTitle(int position) {
-        return mFragmentTitleList.get(position);
+    public int getItemCount() {
+        return mFragmentList.size();
     }
 }
