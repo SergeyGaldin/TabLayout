@@ -9,23 +9,20 @@ import java.util.ArrayList;
 
 public class PageAdapter extends FragmentStateAdapter {
     ArrayList<Fragment> mFragmentList;
-    ArrayList<String> mFragmentTitleList;
 
     public PageAdapter(FragmentActivity fa) {
         super(fa);
         mFragmentList = new ArrayList<>();
-        mFragmentTitleList = new ArrayList<>();
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        return  mFragmentList.get(position);
+        return mFragmentList.get(position);
     }
 
-    public void addFragment(Fragment fragment, String title) {
+    public void addFragment(Fragment fragment) {
         mFragmentList.add(fragment);
-        mFragmentTitleList.add(title);
     }
 
     @Override

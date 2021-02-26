@@ -40,9 +40,9 @@ public class MainActivity extends AppCompatActivity {
 
         // PAGER
         pageAdapter = new PageAdapter(this);
-        pageAdapter.addFragment(new RedFragment(), "Red");
-        pageAdapter.addFragment(new GreenFragment(), "Green");
-        pageAdapter.addFragment(new BlueFragment(), "Blue");
+        pageAdapter.addFragment(new RedFragment());
+        pageAdapter.addFragment(new GreenFragment());
+        pageAdapter.addFragment(new BlueFragment());
         viewPager.setAdapter(pageAdapter);
         viewPager.setPageTransformer(new DepthPageTransformer());
 
