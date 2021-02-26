@@ -6,6 +6,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.animation.TranslateAnimation;
+import android.webkit.WebSettings;
+import android.widget.ZoomButtonsController;
 
 
 import com.example.myapplication.Fragments.BlueFragment;
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         pageAdapter.addFragment(new GreenFragment(), "Green");
         pageAdapter.addFragment(new BlueFragment(), "Blue");
         viewPager.setAdapter(pageAdapter);
+        viewPager.setPageTransformer(true, new DepthPageTransformer());
 
         // TOOLBAR
         setSupportActionBar(toolbar);
